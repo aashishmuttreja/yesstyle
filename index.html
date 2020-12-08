@@ -199,6 +199,8 @@ var ysApp = {};
         	let prdprice = container.find("div.itemPrice").text();
         	let prdsku = container.closest(".itemContainer").data("scarabitem");
 
+        	prdprice = prdprice.replace('HK$ ', '');
+
         	// store values
         	ShoppingCart.addCart({
         		"sku": JSON.stringify(prdsku), 
@@ -214,8 +216,8 @@ var ysApp = {};
 					"ora.z_action": "addtocart",
 					"ora.z_email": getEmail(), 
 					"ora.z_prd_name1": prdname,
-					"ora.z_prd_img1": prdprice,
-					"ora.z_prd_price1": imgUrl,
+					"ora.z_prd_img1": imgUrl,
+					"ora.z_prd_price1": prdprice,
 					"ora.z_prd_sku1": prdsku
 				}
 			});
