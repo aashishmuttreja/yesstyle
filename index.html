@@ -180,13 +180,36 @@ var ysApp = {};
 
         // override button, simulate abandon
         $('#cartBtn').off().click(function() {
-          ORA.click({
-            "sendSessionInfo": true,
-            "data": {
-                "ora.z_action": "abandon",
-                "ora.z_email": getEmail()
-            }
-          });
+        	let cart = ShoppingCart.retrieveCart();
+        	let payload = {
+				"sendSessionInfo": true,
+				"data": {
+					"ora.z_action": "abandon",
+					"ora.z_email": getEmail()
+				}
+			}
+
+        	if(cart.list.length > 0) {
+        		payload["data"]["ora.z_carttotal"] = cart.total;
+        		// take last 3 items added to cart to keep the payload small
+        		let count = 0; 
+        		for(let i = cart.list.length - 1; i >= 0; i--) {
+        			if (count == 2) break;
+
+        			payload["data"]["ora.z_prd_name" + count] = cart.list[i].displayName;
+					payload["data"]["ora.z_prd_img" + count] = cart.list[i].displayImg;
+					payload["data"]["ora.z_prd_price" + count] = cart.list[i].unitPrice;
+					payload["data"]["ora.z_prd_sku" + count] = cart.list[i].sku;
+					payload["data"]["ora.z_prd_qty" + count] = cart.list[i].qty;
+					payload["data"]["ora.z_prd_subtotal" + count] = cart.list[i].subtotal;
+					count += 1;
+        		}
+        	}
+
+        	console.log("abandon");
+        	console.log(payload);
+
+          ORA.click(payload);
         });
 
         // add to cart
@@ -199,7 +222,7 @@ var ysApp = {};
         	let prdprice = container.find("div.itemPrice").text();
         	let prdsku = container.closest(".itemContainer").data("scarabitem");
 
-        	prdprice = prdprice.replace('HK$ ', '');
+        	prdprice = prdprice.replace('HK$', '').replace(/ /g,'').replace(/\s/g,'');
 
         	// store values
         	ShoppingCart.addCart({
@@ -215,10 +238,10 @@ var ysApp = {};
 				"data": {
 					"ora.z_action": "addtocart",
 					"ora.z_email": getEmail(), 
-					"ora.z_prd_name1": prdname,
-					"ora.z_prd_img1": imgUrl,
-					"ora.z_prd_price1": prdprice,
-					"ora.z_prd_sku1": prdsku
+					"ora.z_prd_name0": prdname,
+					"ora.z_prd_img0": imgUrl,
+					"ora.z_prd_price0": prdprice,
+					"ora.z_prd_sku0": prdsku
 				}
 			});
         });  
