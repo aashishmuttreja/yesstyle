@@ -194,7 +194,7 @@ var ysApp = {};
         		// take last 3 items added to cart to keep the payload small
         		let count = 0; 
         		for(let i = cart.list.length - 1; i >= 0; i--) {
-        			if (count == 2) break;
+        			if (count == 3) break;
 
         			payload["data"]["ora.z_prd_name" + count] = cart.list[i].displayName;
 					payload["data"]["ora.z_prd_img" + count] = cart.list[i].displayImg;
