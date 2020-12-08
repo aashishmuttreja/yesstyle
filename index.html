@@ -65,6 +65,12 @@ var ysApp = {};
 /*]]>*/
 </script>
 
+<script type="text/javascript" src="YesStyle_files/jquery-3.5.1.min.js">
+</script>
+
+<script type="text/javascript" src="YesStyle_files/app-shoppingcart.js">
+</script>
+
 <script type="text/javascript">
       var getEmail = function() {
         if (localStorage.email) {
@@ -83,6 +89,8 @@ var ysApp = {};
       }
 
       window.onload = function() {
+      	ShoppingCart.initCart();
+
         $('#responsys-form').on('submit', function(e) {
           // set to localstorage
           var _email = $("#EMAIL_ADDRESS_").val();
@@ -91,8 +99,8 @@ var ysApp = {};
           ORA.click({
             "sendSessionInfo": true,
             "data": {
-                "action": "submitForm",
-                "data_email": getEmail()
+                "ora.z_action": "submitForm",
+                "ora.z_data_email": getEmail()
             }
           });
         });
@@ -116,9 +124,9 @@ var ysApp = {};
           ORA.click({
             "sendSessionInfo": true,
             "data": {
-                "action": "linkHover",
-                "link_text": text,
-                "data_email": getEmail()
+                "ora.z_action": "linkHover",
+                "ora.z_link_text": text,
+                "ora.z_data_email": getEmail()
             }
           });
         });
@@ -130,9 +138,9 @@ var ysApp = {};
           ORA.click({
             "sendSessionInfo": true,
             "data": {
-                "action": "linkClick",
-                "link_text": text,
-                "data_email": getEmail()
+                "ora.z_action": "linkClick",
+                "ora.z_link_text": text,
+                "ora.z_data_email": getEmail()
             }
           });
         });
@@ -151,9 +159,9 @@ var ysApp = {};
           ORA.click({
             "sendSessionInfo": true,
             "data": {
-                "action": "btnClick",
-                "link_text": text,
-                "data_email": getEmail()
+                "ora.z_action": "btnClick",
+                "ora.z_link_text": text,
+                "ora.z_data_email": getEmail()
             }
           });
         });
@@ -163,9 +171,9 @@ var ysApp = {};
           ORA.click({
             "sendSessionInfo": true,
             "data": {
-                "action": "search",
-                "search_term": getSearchTerm(),
-                "data_email": getEmail()
+                "ora.z_action": "search",
+                "ora.z_search_term": getSearchTerm(),
+                "ora.z_data_email": getEmail()
             }
           });
         });
@@ -175,10 +183,42 @@ var ysApp = {};
           ORA.click({
             "sendSessionInfo": true,
             "data": {
-                "action": "abandon",
-                "data_email": getEmail()
+                "ora.z_action": "abandon",
+                "ora.z_email": getEmail()
             }
           });
+        });
+
+        // add to cart
+        $("a.product-link").off().click(function(event) {
+        	event.preventDefault();
+        	// get values
+        	let container = $(this);
+        	let imgUrl = container.find("div.itemCover").find("img").eq(0).attr("src");
+        	let prdname = container.find("div.itemTitle").text();
+        	let prdprice = container.find("div.itemPrice").text();
+        	let prdsku = container.closest(".itemContainer").data("scarabitem");
+
+        	// store values
+        	ShoppingCart.addCart({
+        		"sku": JSON.stringify(prdsku), 
+	            "qty": 1, 
+	            "price": prdprice,
+	            "displayName": prdname,
+	            "displayImg": imgUrl
+        	});
+
+			ORA.click({
+				"sendSessionInfo": true,
+				"data": {
+					"ora.z_action": "addtocart",
+					"ora.z_email": getEmail(), 
+					"ora.z_prd_name1": prdname,
+					"ora.z_prd_img1": prdprice,
+					"ora.z_prd_price1": imgUrl,
+					"ora.z_prd_sku1": prdsku
+				}
+			});
         });  
       };
     </script>
@@ -2707,7 +2747,7 @@ this is it
 <!-- ngIf: lotinfoitem.isNewArrivalSale -->
 <!-- ngIf: lotinfoitem.isDailyFlashDeal -->
 </div><!-- end ngIf: lotinfoitem.isNew || lotinfoitem.isMostPopular || lotinfoitem.isMustTry || lotinfoitem.isNewArrivalSale || lotinfoitem.isDailyFlashDeal || lotinfoitem.product.discount!='' || lotinfoitem.isLimitedDeal || lotinfoitem.isEarlyBird -->
-<a ng-href="https://www.yesstyle.com/en/forseti-plain-notch-lapel-long-coat/info.html/pid.1064139068" ys-ge-click="" ge-data="" class="ng-isolate-scope" href="https://www.yesstyle.com/en/forseti-plain-notch-lapel-long-coat/info.html/pid.1064139068">
+<a ng-href="#" ys-ge-click="" ge-data="" class="ng-isolate-scope product-link" href="#">
 <div class="itemCover ">
 <!-- ngIf: lotinfoitem.hasVideos -->
 <img ys-cdn-image="" src="https://d1flfk77wl2xk4.cloudfront.net/Assets/82/431/M_p0081043182.jpg" src-lazy="https://d1flfk77wl2xk4.cloudfront.net/Assets/82/431/M_p0081043182.jpg" style="min-width: 1px; min-height: 1px;">
@@ -2734,7 +2774,7 @@ this is it
 <!-- ngIf: lotinfoitem.isNewArrivalSale -->
 <!-- ngIf: lotinfoitem.isDailyFlashDeal -->
 </div><!-- end ngIf: lotinfoitem.isNew || lotinfoitem.isMostPopular || lotinfoitem.isMustTry || lotinfoitem.isNewArrivalSale || lotinfoitem.isDailyFlashDeal || lotinfoitem.product.discount!='' || lotinfoitem.isLimitedDeal || lotinfoitem.isEarlyBird -->
-<a ng-href="https://www.yesstyle.com/en/sunkissed-notch-lapel-single-breasted-coat/info.html/pid.1085672632" ys-ge-click="" ge-data="" class="ng-isolate-scope" href="https://www.yesstyle.com/en/sunkissed-notch-lapel-single-breasted-coat/info.html/pid.1085672632">
+<a ng-href="#" ys-ge-click="" ge-data="" class="ng-isolate-scope product-link" href="#">
 <div class="itemCover ">
 <!-- ngIf: lotinfoitem.hasVideos -->
 <img ys-cdn-image="" src="https://d1flfk77wl2xk4.cloudfront.net/Assets/18/746/M_p0119574618.jpg" src-lazy="https://d1flfk77wl2xk4.cloudfront.net/Assets/18/746/M_p0119574618.jpg" style="min-width: 1px; min-height: 1px;">
@@ -2749,7 +2789,7 @@ this is it
 </a>
 </div><!-- end ngRepeat: lotinfoitem in lotinfoitems --><div data-ng-repeat="lotinfoitem in lotinfoitems" class="itemContainer ng-scope" data-scarabitem="1062881630">
 <!-- ngIf: lotinfoitem.isNew || lotinfoitem.isMostPopular || lotinfoitem.isMustTry || lotinfoitem.isNewArrivalSale || lotinfoitem.isDailyFlashDeal || lotinfoitem.product.discount!='' || lotinfoitem.isLimitedDeal || lotinfoitem.isEarlyBird -->
-<a ng-href="https://www.yesstyle.com/en/mrcyc-lapel-plain-woolen-coat/info.html/pid.1062881630" ys-ge-click="" ge-data="" class="ng-isolate-scope" href="https://www.yesstyle.com/en/mrcyc-lapel-plain-woolen-coat/info.html/pid.1062881630">
+<a ng-href="#" ys-ge-click="" ge-data="" class="ng-isolate-scope product-link" href="#">
 <div class="itemCover ">
 <!-- ngIf: lotinfoitem.hasVideos -->
 <img ys-cdn-image="" src="https://d1flfk77wl2xk4.cloudfront.net/Assets/93/732/M_p0077273293.jpg" src-lazy="https://d1flfk77wl2xk4.cloudfront.net/Assets/93/732/M_p0077273293.jpg" style="min-width: 1px; min-height: 1px;">
@@ -2776,7 +2816,7 @@ this is it
 <!-- ngIf: lotinfoitem.isNewArrivalSale -->
 <!-- ngIf: lotinfoitem.isDailyFlashDeal -->
 </div><!-- end ngIf: lotinfoitem.isNew || lotinfoitem.isMostPopular || lotinfoitem.isMustTry || lotinfoitem.isNewArrivalSale || lotinfoitem.isDailyFlashDeal || lotinfoitem.product.discount!='' || lotinfoitem.isLimitedDeal || lotinfoitem.isEarlyBird -->
-<a ng-href="https://www.yesstyle.com/en/sindel-plain-one-button-coat/info.html/pid.1096293782" ys-ge-click="" ge-data="" class="ng-isolate-scope" href="https://www.yesstyle.com/en/sindel-plain-one-button-coat/info.html/pid.1096293782">
+<a ng-href="#" ys-ge-click="" ge-data="" class="ng-isolate-scope product-link" href="#">
 <div class="itemCover ">
 <!-- ngIf: lotinfoitem.hasVideos -->
 <img ys-cdn-image="" src="https://d1flfk77wl2xk4.cloudfront.net/Assets/08/418/M_p0137341808.jpg" src-lazy="https://d1flfk77wl2xk4.cloudfront.net/Assets/08/418/M_p0137341808.jpg" style="min-width: 1px; min-height: 1px;">
@@ -2791,7 +2831,7 @@ this is it
 </a>
 </div><!-- end ngRepeat: lotinfoitem in lotinfoitems --><div data-ng-repeat="lotinfoitem in lotinfoitems" class="itemContainer ng-scope" data-scarabitem="1081637657">
 <!-- ngIf: lotinfoitem.isNew || lotinfoitem.isMostPopular || lotinfoitem.isMustTry || lotinfoitem.isNewArrivalSale || lotinfoitem.isDailyFlashDeal || lotinfoitem.product.discount!='' || lotinfoitem.isLimitedDeal || lotinfoitem.isEarlyBird -->
-<a ng-href="https://www.yesstyle.com/en/sheck-button-coat/info.html/pid.1081637657" ys-ge-click="" ge-data="" class="ng-isolate-scope" href="https://www.yesstyle.com/en/sheck-button-coat/info.html/pid.1081637657">
+<a ng-href="#" ys-ge-click="" ge-data="" class="ng-isolate-scope product-link" href="#">
 <div class="itemCover ">
 <!-- ngIf: lotinfoitem.hasVideos -->
 <img ys-cdn-image="" src="https://d1flfk77wl2xk4.cloudfront.net/Assets/00/634/M_p0117963400.jpg" src-lazy="https://d1flfk77wl2xk4.cloudfront.net/Assets/00/634/M_p0117963400.jpg" style="min-width: 1px; min-height: 1px;">
@@ -2806,7 +2846,7 @@ this is it
 </a>
 </div><!-- end ngRepeat: lotinfoitem in lotinfoitems --><div data-ng-repeat="lotinfoitem in lotinfoitems" class="itemContainer ng-scope" data-scarabitem="1087034699">
 <!-- ngIf: lotinfoitem.isNew || lotinfoitem.isMostPopular || lotinfoitem.isMustTry || lotinfoitem.isNewArrivalSale || lotinfoitem.isDailyFlashDeal || lotinfoitem.product.discount!='' || lotinfoitem.isLimitedDeal || lotinfoitem.isEarlyBird -->
-<a ng-href="https://www.yesstyle.com/en/wild-dragon-single-breasted-coat/info.html/pid.1087034699" ys-ge-click="" ge-data="" class="ng-isolate-scope" href="https://www.yesstyle.com/en/wild-dragon-single-breasted-coat/info.html/pid.1087034699">
+<a ng-href="#" ys-ge-click="" ge-data="" class="ng-isolate-scope product-link" href="#">
 <div class="itemCover ">
 <!-- ngIf: lotinfoitem.hasVideos -->
 <img ys-cdn-image="" src="https://d1flfk77wl2xk4.cloudfront.net/Assets/88/002/M_p0121600288.jpg" src-lazy="https://d1flfk77wl2xk4.cloudfront.net/Assets/88/002/M_p0121600288.jpg" style="min-width: 1px; min-height: 1px;">
