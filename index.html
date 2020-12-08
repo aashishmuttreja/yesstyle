@@ -89,6 +89,10 @@ var ysApp = {};
         location.reload();
       }
 
+      setTimeout(function() {
+      	$("#EMAIL_ADDRESS_").val(getEmail());
+      }, 3000)
+      
       window.onload = function() {
       	ShoppingCart.initCart();
 
