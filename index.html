@@ -85,6 +85,7 @@ var ysApp = {};
 
       var refresh = function() {
         localStorage.email = ''; // clear it
+        webPushManagerAPI.resetUserId();
         location.reload();
       }
 
@@ -95,6 +96,8 @@ var ysApp = {};
           // set to localstorage
           var _email = $("#EMAIL_ADDRESS_").val();
           localStorage.email = _email;
+
+          webPushManagerAPI.setUserId(getEmail());
 
           ORA.click({
             "sendSessionInfo": true,
