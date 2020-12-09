@@ -251,7 +251,34 @@ var ysApp = {};
 					"ora.z_prd_sku0": prdsku
 				}
 			});
-        });  
+        });
+
+        // wishlist
+        $("span.itemSaver").off().click(function(event) {
+        	event.preventDefault();
+
+        	// get values
+        	let container = $(this).closest(".product-link");
+        	let imgUrl = container.find("div.itemCover").find("img").eq(0).attr("src");
+        	let prdname = container.find("div.itemTitle").text();
+        	let prdprice = container.find("div.itemPrice").text();
+        	let prdsku = container.closest(".itemContainer").data("scarabitem");
+
+        	prdprice = prdprice.replace('HK$', '').replace(/ /g,'').replace(/\s/g,'');
+
+        	ORA.click({
+				"sendSessionInfo": true,
+				"data": {
+					"ora.z_action": "wishlist",
+					"ora.z_email": getEmail(), 
+					"ora.z_prd_name0": prdname,
+					"ora.z_prd_img0": imgUrl,
+					"ora.z_prd_price0": prdprice,
+					"ora.z_prd_sku0": prdsku
+				}
+			});
+        });
+
       };
     </script>
 
