@@ -86,6 +86,7 @@ var ysApp = {};
       var refresh = function() {
          localStorage.email = ''; // clear it
         webPushManagerAPI.resetUserId();
+        ShoppingCart.resetCart();
         location.reload();
       }
 
