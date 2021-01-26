@@ -1133,9 +1133,9 @@ Items from this brand cannot be shipped to the US and Korea.
 <div class="eliteClubMembership ng-binding" ng-class="{goldBirthday: q.birthmonth}" ng-show="productData.isSellable || productData.isAdventCalendar" aria-hidden="false">
 YesStyle Price
 </div>
-<!-- ngIf: productData.isSellable || productData.isAdventCalendar --><div class="sellingPrice ng-binding ng-scope" ng-bind-html="productData.product.sellPrice" ng-if="productData.isSellable || productData.isAdventCalendar">฿&nbsp;5,990</div><!-- end ngIf: productData.isSellable || productData.isAdventCalendar -->
+<!-- ngIf: productData.isSellable || productData.isAdventCalendar --><div class="sellingPrice ng-binding ng-scope" ng-bind-html="productData.product.sellPrice" ng-if="productData.isSellable || productData.isAdventCalendar">THB&nbsp;5,990</div><!-- end ngIf: productData.isSellable || productData.isAdventCalendar -->
 <!-- ngIf: (productData.product.discount && productData.isSellable)  || productData.isAdventCalendar --><div class="unitPrice ng-scope" ng-if="(productData.product.discount &amp;&amp; productData.isSellable)  || productData.isAdventCalendar">
-<!-- ngIf: productData.product.discount || productData.isAdventCalendar --><span class="listPrice ng-binding ng-scope" ng-bind-html="productData.product.listPrice" ng-if="productData.product.discount || productData.isAdventCalendar">฿&nbsp;18,990</span><!-- end ngIf: productData.product.discount || productData.isAdventCalendar -->
+<!-- ngIf: productData.product.discount || productData.isAdventCalendar --><span class="listPrice ng-binding ng-scope" ng-bind-html="productData.product.listPrice" ng-if="productData.product.discount || productData.isAdventCalendar">THB&nbsp;18,990</span><!-- end ngIf: productData.product.discount || productData.isAdventCalendar -->
 <span ng-show="productData.product.discount" class="discount ng-binding" ng-bind-html="productData.product.discount" aria-hidden="false">68% OFF</span>
 <span class="countdown nowrap" ng-show="productData.saleEndDate!=''" aria-hidden="false">
 Sale ends in
@@ -1298,7 +1298,7 @@ see if it becomes available.</span>
 </v-pane>
 </v-accordion>
 <a ys-dialog="" ng-click="showDialog($event);pushGeData()" data-template-id="/product/freeshipping/FreeShippingNote.html" ge-data="{&amp;quot;ecommerce&amp;quot;:{&amp;quot;promoClick&amp;quot;:{&amp;quot;promotions&amp;quot;:[{&amp;quot;name&amp;quot;:&amp;quot;Shipping Info_SINGAPORE&amp;quot;,&amp;quot;id&amp;quot;:&amp;quot;2020shipping&amp;quot;,&amp;quot;position&amp;quot;:&amp;quot;ProductPage_textbox_3&amp;quot;,&amp;quot;creative&amp;quot;:&amp;quot;Shipping Info_SINGAPORE(en)&amp;quot;}]}},&amp;quot;event&amp;quot;:&amp;quot;promotionClick&amp;quot;}" class="ng-scope">
-Free Shipping within Thailand with any ฿&nbsp;7000 purchase or above
+Free Shipping within Thailand with any THB&nbsp;7000 purchase or above
 <span class="transit icon icon-angle-right"></span>
 </a>
 <script type="text/ng-template" id="/product/freeshipping/FreeShippingNote.html">
@@ -1447,8 +1447,8 @@ Free Shipping within Thailand with any ฿&nbsp;7000 purchase or above
 <div ys-cross-selling-show-more-button="" promotion-size="3" clipping-size="4" class="childSection gradientTop">
 <div class="layout-gt-xs-column layout-gt-sm-row layout-md-row layout-gt-md-column layout-wrap" ng-class="{'clipIt':promotionClipping}">
 <div class="childColumn blockLink flex-auto">
-<a href="https://www.yesstyle.com/en/women-women/list.html/bcc.14068_bpt.46#/sb=165" ys-ge-click="" ge-data="{&amp;quot;ecommerce&amp;quot;:{&amp;quot;promoClick&amp;quot;:{&amp;quot;promotions&amp;quot;:[{&amp;quot;name&amp;quot;:&amp;quot;IT'S NEVER TOO LATE! product page&amp;quot;,&amp;quot;id&amp;quot;:&amp;quot;2020\/week49&amp;quot;,&amp;quot;position&amp;quot;:&amp;quot;PP1&amp;quot;,&amp;quot;creative&amp;quot;:&amp;quot;Extra 15% OFF orders over ฿2,000*&amp;lt;br&amp;gt;Use code: 2020GIFT(en)&amp;quot;}]}},&amp;quot;event&amp;quot;:&amp;quot;promotionClick&amp;quot;}" class="ng-isolate-scope">
-<h4>Extra 15% OFF orders over ฿4,000*<br>Use code: 2020GIFT</h4>
+<a href="https://www.yesstyle.com/en/women-women/list.html/bcc.14068_bpt.46#/sb=165" ys-ge-click="" ge-data="{&amp;quot;ecommerce&amp;quot;:{&amp;quot;promoClick&amp;quot;:{&amp;quot;promotions&amp;quot;:[{&amp;quot;name&amp;quot;:&amp;quot;IT'S NEVER TOO LATE! product page&amp;quot;,&amp;quot;id&amp;quot;:&amp;quot;2020\/week49&amp;quot;,&amp;quot;position&amp;quot;:&amp;quot;PP1&amp;quot;,&amp;quot;creative&amp;quot;:&amp;quot;Extra 15% OFF orders over THB 2,000*&amp;lt;br&amp;gt;Use code: 2020GIFT(en)&amp;quot;}]}},&amp;quot;event&amp;quot;:&amp;quot;promotionClick&amp;quot;}" class="ng-isolate-scope">
+<h4>Extra 15% OFF orders over THB 4,000*<br>Use code: 2020GIFT</h4>
 <p>
 <span class="countdown">Sale ends Dec. 6, 2020<span class="verticleLine">|</span> <span countdown="" end-date="2020/12/08 16:00:00 GMT+0800" units="d|h|m|s"> 3d 20h 52m 25s</span> left</span>
 </p>
@@ -1513,7 +1513,7 @@ this is it
 <span class="itemSaver" ng-class="{'activePulse':isSavedItem(lotinfoitem.product.productId, lotinfoitem.childProductIds)}" ng-click="onSaveSelectedProductOption($event, lotinfoitem.product.productId, lotinfoitem.childProductIds)" role="button" tabindex="0"><span class="transit iconWrapper"><span class="animated icon icon-save-items"></span></span></span>
 </div>
 <div class="itemTitle ng-binding" ng-bind-html="lotinfoitem.product.brandName + ' - ' + lotinfoitem.product.name">Huskies Bags - Light Pink Huskies Bags Women Shoulder Bag</div>
-<div class="itemPrice ng-binding" ng-bind-html="lotinfoitem.product.sellPrice">฿&nbsp;1298</div>
+<div class="itemPrice ng-binding" ng-bind-html="lotinfoitem.product.sellPrice">THB&nbsp;1298</div>
 <!-- ngIf: lotinfoitem.isLimitedDeal -->
 <!-- ngIf: lotinfoitem.isEarlyBird -->
 <!-- ngIf: lotinfoitem.product.reviewRatingCount > 0 --><div class="icon iconScale-1x nowrap ratingRow ng-scope" ng-if="lotinfoitem.product.reviewRatingCount > 0">
@@ -1540,7 +1540,7 @@ this is it
 <span class="itemSaver" ng-class="{'activePulse':isSavedItem(lotinfoitem.product.productId, lotinfoitem.childProductIds)}" ng-click="onSaveSelectedProductOption($event, lotinfoitem.product.productId, lotinfoitem.childProductIds)" role="button" tabindex="0"><span class="transit iconWrapper"><span class="animated icon icon-save-items"></span></span></span>
 </div>
 <div class="itemTitle ng-binding" ng-bind-html="lotinfoitem.product.brandName + ' - ' + lotinfoitem.product.name">GUESS - BAG LG786568 PICNIC CHIT CHAT, LEOPARD</div>
-<div class="itemPrice ng-binding" ng-bind-html="lotinfoitem.product.sellPrice">฿&nbsp;1295</div>
+<div class="itemPrice ng-binding" ng-bind-html="lotinfoitem.product.sellPrice">THB&nbsp;1295</div>
 <!-- ngIf: lotinfoitem.isLimitedDeal -->
 <!-- ngIf: lotinfoitem.isEarlyBird -->
 <!-- ngIf: lotinfoitem.product.reviewRatingCount > 0 -->
@@ -1555,7 +1555,7 @@ this is it
 <span class="itemSaver" ng-class="{'activePulse':isSavedItem(lotinfoitem.product.productId, lotinfoitem.childProductIds)}" ng-click="onSaveSelectedProductOption($event, lotinfoitem.product.productId, lotinfoitem.childProductIds)" role="button" tabindex="0"><span class="transit iconWrapper"><span class="animated icon icon-save-items"></span></span></span>
 </div>
 <div class="itemTitle ng-binding" ng-bind-html="lotinfoitem.product.brandName + ' - ' + lotinfoitem.product.name">Tommy Hilfiger - TURNLOCK SMALL LEATHER CROSSOVER BAG AW0AW08737 MULTICOLOR</div>
-<div class="itemPrice ng-binding" ng-bind-html="lotinfoitem.product.sellPrice">฿&nbsp;4775</div>
+<div class="itemPrice ng-binding" ng-bind-html="lotinfoitem.product.sellPrice">THB&nbsp;4775</div>
 <!-- ngIf: lotinfoitem.isLimitedDeal -->
 <!-- ngIf: lotinfoitem.isEarlyBird -->
 <!-- ngIf: lotinfoitem.product.reviewRatingCount > 0 --><div class="icon iconScale-1x nowrap ratingRow ng-scope" ng-if="lotinfoitem.product.reviewRatingCount > 0">
@@ -1597,7 +1597,7 @@ this is it
 <span class="itemSaver" ng-class="{'activePulse':isSavedItem(lotinfoitem.product.productId, lotinfoitem.childProductIds)}" ng-click="onSaveSelectedProductOption($event, lotinfoitem.product.productId, lotinfoitem.childProductIds)" role="button" tabindex="0"><span class="transit iconWrapper"><span class="animated icon icon-save-items"></span></span></span>
 </div>
 <div class="itemTitle ng-binding" ng-bind-html="lotinfoitem.product.brandName + ' - ' + lotinfoitem.product.name">Unikko / Maria Bag - MARIMEKKO Multi-Color</div>
-<div class="itemPrice ng-binding" ng-bind-html="lotinfoitem.product.sellPrice">฿&nbsp;3660</div>
+<div class="itemPrice ng-binding" ng-bind-html="lotinfoitem.product.sellPrice">THB&nbsp;3660</div>
 <!-- ngIf: lotinfoitem.isLimitedDeal -->
 <!-- ngIf: lotinfoitem.isEarlyBird -->
 <!-- ngIf: lotinfoitem.product.reviewRatingCount > 0 -->
@@ -1612,7 +1612,7 @@ this is it
 <span class="itemSaver" ng-class="{'activePulse':isSavedItem(lotinfoitem.product.productId, lotinfoitem.childProductIds)}" ng-click="onSaveSelectedProductOption($event, lotinfoitem.product.productId, lotinfoitem.childProductIds)" role="button" tabindex="0"><span class="transit iconWrapper"><span class="animated icon icon-save-items"></span></span></span>
 </div>
 <div class="itemTitle ng-binding" ng-bind-html="lotinfoitem.product.brandName + ' - ' + lotinfoitem.product.name">Triangle Bag with Tai Motif - PLEATS PLEASE ISSEY MIYAKE</div>
-<div class="itemPrice ng-binding" ng-bind-html="lotinfoitem.product.sellPrice">฿&nbsp;1599</div>
+<div class="itemPrice ng-binding" ng-bind-html="lotinfoitem.product.sellPrice">THB&nbsp;1599</div>
 <!-- ngIf: lotinfoitem.isLimitedDeal -->
 <!-- ngIf: lotinfoitem.isEarlyBird -->
 <!-- ngIf: lotinfoitem.product.reviewRatingCount > 0 -->
