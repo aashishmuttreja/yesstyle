@@ -108,7 +108,7 @@ var Profile360 = (function() {
   
   // open/collapse link/button
   function _addToggle() {
-    $(".profile-toogle-btn-open").click(function() {
+    $(".profile-toogle-btn-open").off().click(function() {
       // open profile clicked
       $(this).addClass("hide");
       $(".profile-toogle-btn-close").removeClass("hide");
@@ -116,7 +116,7 @@ var Profile360 = (function() {
       $("#" + uiContainerId).css("height", "100%");
     });
     
-    $(".profile-toogle-btn-close").click(function() {
+    $(".profile-toogle-btn-close").off().click(function() {
       // close profile clicked
       $(this).addClass("hide");
       $(".profile-toogle-btn-open").removeClass("hide");
@@ -126,7 +126,7 @@ var Profile360 = (function() {
   }
   
   function _addRefresh() {
-    $(".refresh-btn").click(function() {
+    $(".refresh-btn").off().click(function() {
       _render();
     });
   }
@@ -137,8 +137,11 @@ var Profile360 = (function() {
 })();
 
 $(document).ready(function(){
-  Profile360Storage.init();
-  Profile360.render();
+  setTimeout(function() {
+    Profile360Storage.init();
+    Profile360.render();
+  }, 3000);
+  
   /*
   setInterval(function() {
     Profile360.render();  
