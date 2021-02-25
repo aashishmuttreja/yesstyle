@@ -1,7 +1,7 @@
 var Profile360Storage = (function() {
   let sessionStorageName = "profile360";
-  let limitWebActivities = 6; // limit to last 6 records
-  let limitShoppingCart = 6; // limit to last 6 records
+  let limitWebActivities = 10; // limit to last 10 records
+  let limitShoppingCart = 10; // limit to last 10 records
   
   let _initStorage = function() {
     if(!sessionStorage.getItem(sessionStorageName)) {
