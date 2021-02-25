@@ -20,7 +20,7 @@ var ShoppingCart = (function() {
     // compute total
     let session = JSON.parse(sessionStorage.getItem("cart"));
     for(let i = 0; i < session.list.length; i++) {
-      let unitPrice = session.list[i].price; 
+      let unitPrice = parseFloat(session.list[i].price); 
       let qty = session.list[i].qty;
       let subTotal = qty * unitPrice;
       
