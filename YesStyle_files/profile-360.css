@@ -26,8 +26,12 @@
 }
 
 .wrap-tbl-col-txt {
-  max-width: 30px;
+  max-width: 100px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.table-striped {
+  width: 100%;
 }

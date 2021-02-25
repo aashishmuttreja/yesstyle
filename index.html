@@ -134,7 +134,7 @@ var ysApp = {};
           Profile360Storage.addWebActivity({
 				"event": "Submit",
 				"type": "Form", 
-				"object": text
+				"object": text.trim()
 			});
         });
 
@@ -158,7 +158,7 @@ var ysApp = {};
             "sendSessionInfo": true,
             "data": {
                 "ora.z_action": "linkHover",
-                "ora.z_link_text": text,
+                "ora.z_link_text": text.trim(),
                 "ora.z_data_email": getEmail()
             }
           });
@@ -166,7 +166,7 @@ var ysApp = {};
           Profile360Storage.addWebActivity({
 				"event": "Hover",
 				"type": "Link", 
-				"object": text
+				"object": text.trim()
 			});
         });
 
@@ -178,7 +178,7 @@ var ysApp = {};
             "sendSessionInfo": true,
             "data": {
                 "ora.z_action": "linkClick",
-                "ora.z_link_text": text,
+                "ora.z_link_text": text.trim(),
                 "ora.z_data_email": getEmail()
             }
           });
@@ -186,7 +186,7 @@ var ysApp = {};
           Profile360Storage.addWebActivity({
 				"event": "Click",
 				"type": "Link", 
-				"object": text
+				"object": text.trim()
 			});
         });
 
@@ -199,13 +199,13 @@ var ysApp = {};
             text = $(this).text(); 
           }
 
-          console.log(text + 'btn click ');
+          console.log(text.trim() + 'btn click ');
 
           ORA.click({
             "sendSessionInfo": true,
             "data": {
                 "ora.z_action": "btnClick",
-                "ora.z_link_text": text,
+                "ora.z_link_text": text.trim(),
                 "ora.z_data_email": getEmail()
             }
           });
@@ -213,7 +213,7 @@ var ysApp = {};
           Profile360Storage.addWebActivity({
 				"event": "Click",
 				"type": "Button", 
-				"object": text
+				"object": text.trim()
 			});
         });
 
