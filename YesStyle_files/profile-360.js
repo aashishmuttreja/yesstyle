@@ -89,8 +89,8 @@ var Profile360 = (function() {
     let fn = localStorage.firstname ? localStorage.firstname : '';
     let ln = localStorage.lastname ? localStorage.lastname : '';
     let email = localStorage.email ? localStorage.email : 'ANONYMOUS';
-    $("#profile-name").val(fn + ' ' + ln);
-    $("#profile-email").val(email);
+    $("#profile-name").text(fn + ' ' + ln);
+    $("#profile-email").text(email);
   }
 
   function _renderWebActivities() {
