@@ -65,6 +65,7 @@ var Profile360 = (function() {
   
   function _render() {
     _renderUI();
+    _renderProfile();
     _renderWebActivities();
     _renderShoppingCart();
     _renderRsysWebPushInfo();
@@ -83,6 +84,15 @@ var Profile360 = (function() {
     uiContainer.html(_.template(uiTemplate));  
   }
   
+  function _renderProfile() {
+    // todo: streamline this
+    let fn = localStorage.firstname ? localStorage.firstname : '';
+    let ln = localStorage.lastname ? localStorage.lastname : '';
+    let email = localStorage.email ? localStorage.email : 'ANONYMOUS';
+    $("#profile-name").val(fn + ' ' + ln);
+    $("#profile-email").val(email);
+  }
+
   function _renderWebActivities() {
     let activities = Profile360Storage.getWebActivities();
     for(let i = 0; i < activities.length; i++) {

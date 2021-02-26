@@ -103,14 +103,18 @@ var ysApp = {};
       }
 
       var refresh = function() {
-         localStorage.email = ''; // clear it
-        webPushManagerAPI.resetUserId();
-        ShoppingCart.resetCart();
-        location.reload();
+		localStorage.email = ''; // clear it
+		localStorage.firstname = ''; // clear it
+		localStorage.lastname = ''; // clear it
+		webPushManagerAPI.resetUserId();
+		ShoppingCart.resetCart();
+		location.reload();
       }
 
       setTimeout(function() {
       	$("#EMAIL_ADDRESS_").val(getEmail());
+      	$("#FIRST_NAME").val(localStorage.firstname ? localStorage.firstname : '');
+        $("#LAST_NAME").val(localStorage.lastname ? localStorage.lastname : '');
       }, 3000)
       
       window.onload = function() {
@@ -118,8 +122,12 @@ var ysApp = {};
 
         $('#responsys-form').on('submit', function(e) {
           // set to localstorage
-          var _email = $("#EMAIL_ADDRESS_").val();
+          let _email = $("#EMAIL_ADDRESS_").val().trim();
+          let _firstName = $("#FIRST_NAME").val().trim();
+          let _lastName = $("#LAST_NAME").val().trim();
           localStorage.email = _email;
+          localStorage.firstname = _firstName;
+          localStorage.lastname = _lastName;
 
           webPushManagerAPI.setUserId(getEmail());
 
@@ -1760,11 +1768,11 @@ l.parentNode.insertBefore(k,l);f.onYouTubeIframeAPIReady=function(b){return func
 	  </div>
 	  <div class="row"> 
 	    <div class="col-md-4"><strong>Name:</strong></div>
-	    <div class="col-md-8"><p>Mimi</p></div>
+	    <div class="col-md-8"><p id="profile-name"></p></div>
 	  </div>
 	  <div class="row"> 
 	    <div class="col-md-4"><strong>Email:</strong></div>
-	    <div class="col-md-8"><p>mimi@gmail.com</p></div>
+	    <div class="col-md-8"><p id="profile-email"></p></div>
 	  </div>
 	  <div class="row"> 
 	    <div class="col-md-4"><strong>Loyalty Points:</strong></div>
