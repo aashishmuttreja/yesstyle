@@ -152,71 +152,81 @@ var ysApp = {};
         };
 		
 		// tag link hovers
-		/*
         $('a').hover(function() {
-          var text = $(this).text();
-          ORA.click({
-            "sendSessionInfo": true,
-            "data": {
-                "ora.z_action": "linkHover",
-                "ora.z_link_text": text.trim(),
-                "ora.z_data_email": getEmail()
-            }
-          });
+			var text = $(this).text();
+			text = text.trim();
 
-          Profile360Storage.addWebActivity({
-				"event": "Hover",
-				"type": "Link", 
-				"object": text.trim()
-			});
+			if (text.length < 50) {
+				ORA.click({
+					"sendSessionInfo": true,
+					"data": {
+						"ora.z_action": "linkHover",
+						"ora.z_link_text": text,
+						"ora.z_data_email": getEmail()
+					}
+				});
+
+				Profile360Storage.addWebActivity({
+					"event": "Hover",
+					"type": "Link", 
+					"object": text
+				});
+			}
         });
-        */
+        
 
         // tag link clicks
         $('a').attr('href', '');
         $('a').click(function() {
-          var text = $(this).text();
-          ORA.click({
-            "sendSessionInfo": true,
-            "data": {
-                "ora.z_action": "linkClick",
-                "ora.z_link_text": text.trim(),
-                "ora.z_data_email": getEmail()
-            }
-          });
+			var text = $(this).text();
+			text = text.trim();
+			if (text.length < 50) {
+				ORA.click({
+				"sendSessionInfo": true,
+				"data": {
+				    "ora.z_action": "linkClick",
+				    "ora.z_link_text": text,
+				    "ora.z_data_email": getEmail()
+				}
+				});
 
-          Profile360Storage.addWebActivity({
-				"event": "Click",
-				"type": "Link", 
-				"object": text.trim()
-			});
+				Profile360Storage.addWebActivity({
+					"event": "Click",
+					"type": "Link", 
+					"object": text
+				});
+			}
         });
 
         // button
         $('button').off().click(function() {  
-          console.log('btn click')
-          var text = $(this).attr('data-original-title');
+			console.log('btn click');
+			var text = $(this).attr('data-original-title');
 
-          if (!text) {
-            text = $(this).text(); 
-          }
+			if (!text) {
+				text = $(this).text(); 
+			}
 
-          console.log(text.trim() + 'btn click ');
+			console.log(text.trim() + 'btn click ');
 
-          ORA.click({
-            "sendSessionInfo": true,
-            "data": {
-                "ora.z_action": "btnClick",
-                "ora.z_link_text": text.trim(),
-                "ora.z_data_email": getEmail()
-            }
-          });
+			text = text.trim();
 
-          Profile360Storage.addWebActivity({
-				"event": "Click",
-				"type": "Button", 
-				"object": text.trim()
-			});
+			if (text.length < 50) {
+				ORA.click({
+					"sendSessionInfo": true,
+					"data": {
+						"ora.z_action": "btnClick",
+						"ora.z_link_text": text,
+						"ora.z_data_email": getEmail()
+					}
+				});
+
+				Profile360Storage.addWebActivity({
+					"event": "Click",
+					"type": "Button", 
+					"object": text
+				});
+			}
         });
 
         // override button, tag search button
