@@ -67,6 +67,7 @@ var Profile360 = (function() {
     _renderUI();
     _renderWebActivities();
     _renderShoppingCart();
+    _renderRsysWebPushInfo();
     _addEvents();
   }
   
@@ -104,6 +105,45 @@ var Profile360 = (function() {
                                                         "<td>" + shoppingCart.list[i].qty + "</td>"+
                                                         "</tr>");
     }
+  };
+  
+  // ref: requires responsys webpush sdk embedded
+  function _renderRsysWebPushInfo() {
+    let uid = "", vid = "", notificationPermision = "", optinStatus = "";
+    
+    try {
+      if(webPushManagerAPI.getUserId() != null && webPushManagerAPI.getUserId().length > 0) {
+        uid = webPushManagerAPI.getUserId();
+      }
+    } catch (e) { console.error(e); }
+    
+    try {
+      if(webPushManagerAPI.getVisitorId() != null && webPushManagerAPI.getVisitorId().length > 0) {
+        vid = webPushManagerAPI.getVisitorId();
+      }
+    } catch (e) { console.error(e); }
+    
+    try {
+      notificationPermision = webPushManagerAPI.getNotificationPermission();
+    } catch (e) { console.error(e); }
+    
+    try {
+      optinStatus = webPushManagerAPI.getOptInOptOutStatus();
+    } catch (e) { console.error(e); }
+    
+    if (status === "I")
+      optinStatus = "Opt In (I)";
+    else 
+      optinStatus = "Opt Out (O)"
+    
+    // User ID
+    $("#wp-uid").text(uid);
+    // Visitor ID
+    $("#wp-vid").text(vid);
+    // Notification Permission
+    $("wp-notify-perm").text(notificationPermision);
+    // Opt-in Status
+    $("wp-optin-status").text(optinStatus);
   };
   
   // open/collapse link/button
