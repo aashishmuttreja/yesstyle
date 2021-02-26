@@ -134,18 +134,18 @@ var Profile360 = (function() {
     if (status === "I")
       optinStatus = "Opt In (I)";
     else 
-      optinStatus = "Opt Out (O)"
+      optinStatus = "Opt Out (O)";
     
     // User ID
     $("#wp-uid").text(uid);
     // Visitor ID
     $("#wp-vid").text(vid);
     // Notification Permission
-    $("wp-notify-perm").text(notificationPermision);
+    $("#wp-notify-perm").text(notificationPermision);
     // Opt-in Status
-    $("wp-optin-status").text(optinStatus);
+    $("#wp-optin-status").text(optinStatus);
   };
-  
+
   // open/collapse link/button
   function _addToggle() {
     $(".profile-toogle-btn-open").off().click(function() {
