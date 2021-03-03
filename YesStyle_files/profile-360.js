@@ -141,7 +141,7 @@ var Profile360 = (function() {
       optinStatus = webPushManagerAPI.getOptInOptOutStatus();
     } catch (e) { console.error(e); }
     
-    if (status === "I")
+    if (optinStatus === "I")
       optinStatus = "Opt In (I)";
     else 
       optinStatus = "Opt Out (O)";
